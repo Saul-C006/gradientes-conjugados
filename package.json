@@ -1,0 +1,20 @@
+{
+  "name": "gradientes-conjugados-finanzas",
+  "version": "2.0.0",
+  "description": "Gradientes Conjugados Precondicionado (Suñagua, 2020) aplicado a la planificación financiera interdepartamental. Desafío de Métodos Numéricos, UMSA 2026.",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "node --test tests/numerics.test.js",
+    "test:e2e": "node tests/e2e.js",
+    "test:all": "npm test && npm run test:e2e"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Saúl Walter Callisaya Sumi",
+  "license": "MIT"
+}
