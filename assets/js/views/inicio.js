@@ -1,9 +1,9 @@
 /* Vista 1 · Inicio */
 (function () {
   "use strict";
-  const { card, kpi, T, TD, table, chip } = window.UI;
+  const { card, kpi, T, TD, table } = window.UI;
   const F = window.FMT;
-  const { STUDENT, RUBRIC } = window.CASE;
+  const { STUDENT } = window.CASE;
 
   App.view({
     id: "inicio",
@@ -20,11 +20,6 @@
             `<a href="#/${v.id}" style="--mc:var(${v.color || "--accent"})"><span class="mn">${v.module ? `MÓDULO ${v.module}` : "COMPLEMENTO"}</span><div><b>${v.title}</b></div><small>${v.blurb || ""}</small></a>`,
         )
         .join("");
-      const rubricRows = RUBRIC.map((r) => [
-        r.crit,
-        `<b>${r.pts}</b>`,
-        r.where.map((w) => `<a href="#/${w}">${App.views.get(w)?.title || w}</a>`).join(" · "),
-      ]);
       return `
       <section class="hero">
         <div class="eyebrow">Aplicación del método de Gradientes Conjugados Precondicionado en problemas financieros</div>
@@ -81,11 +76,6 @@
       <p class="muted">Cada método tiene su propia página con la teoría, el algoritmo, el cálculo paso a paso con los datos actuales y sus gráficos.
       La barra superior permite cambiar de escenario o de precondicionador desde cualquier página; todo se recalcula al instante.</p>
       <div class="map">${map}</div>
-
-      <h2 class="sec"><span class="n">✓</span>Correspondencia con la rúbrica (100 puntos)</h2>
-      ${table(["Criterio", "Puntos", "Dónde se cumple"], rubricRows)}
-      <p class="small muted" style="margin-top:8px">${chip("ok", "Cumple")} Los diez módulos obligatorios de la sección 7 de la guía están presentes; las páginas extra
-      (métodos por separado y geometría 3D) son complementos.</p>
       `;
     },
   });
